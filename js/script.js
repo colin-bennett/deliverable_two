@@ -1,24 +1,29 @@
-clothingSuggestion();
+let eventType = window.prompt('Is the dress code casual, semi-formal, or formal?').toLowerCase();
+let tempFahr = window.prompt('What is the tempurture outside?');
+let result = `Since it is ${tempFahr} degrees and you are going to a ${eventType} event, you should wear ${outfitAdvice()}`;
 
-function clothingSuggestion() {
-  var eventType = prompt('How formal is the event?', 'casual, semi-formal, or formal');
-  var tempFahr = prompt('What is the tempurture?', 'Degrees Fahrenheit');
-  if (eventType == 'casual' && tempFahr < 54) {
-    console.log('Since it is below 54 degrees and you are going to a casual event, you should wear something comfy with a coat.');
+function outfitAdvice() {
+  if (eventType === 'casual' && tempFahr < 54) {
+  	return 'something comfy and a coat.';
+  } else if (eventType === 'casual' && tempFahr >= 54 && tempFahr <= 70) {
+	return 'something comfy and a jacket.';
+  } else if (eventType === 'casual' && tempFahr > 70) {
+	return 'something comfy without a jacket.';
+  } else if (eventType === 'semi-formal' && tempFahr < 54) {
+  	return 'a polo and a coat.';
+  } else if (eventType === 'semi-formal' && tempFahr >= 54 && tempFahr <= 70) {
+	return 'a polo and a jacket.';
+  } else if (eventType === 'semi-formal' && tempFahr > 70) {
+	return 'a polo without a jacket.';
+  } else if (eventType === 'formal' && tempFahr < 54) {
+  	return 'a suit and a coat.';
+  } else if (eventType === 'formal' && tempFahr >= 54 && tempFahr <= 70) {
+	return 'a suit and a jacket.';
+  } else if (eventType === 'formal' && tempFahr > 70) {
+	return 'a suit without a jacket.';
+  } else {
+	return 'something that looks amazing!';
   }
-  else if (eventType == 'casual' && tempFahr > 70) {
-    console.log('Since it is above 70 degrees and you are going to a casual event, you should wear something comfy without a jacket.');
-  }
-  else if (eventType == 'semi-formal' && tempFahr < 54) {
-    console.log('Since it is below 54 degrees and you are going to a semi-formal event, you should wear a polo with a coat.');
-  }
-  else if (eventType == 'semi-formal' && tempFahr > 70) {
-    console.log('Since it is above 70 degrees and you are going to a semi-formal event, you should wear a polo without a jacket.');
-  }
-  else if (eventType == 'formal' && tempFahr < 54) {
-    console.log('Since it is below 54 degrees and you are going to a formal event, you should wear a suit with a coat.');
-  }
-  else if (eventType == 'formal' && tempFahr > 70) {
-    console.log('Since it is above 70 degrees and you are going to a formal event, you should wear a suit without a jacket.');
-  }
-}
+};
+
+console.log(result);
